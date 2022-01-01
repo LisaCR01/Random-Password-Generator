@@ -15,7 +15,6 @@ pwdLength=Number(pwdLength)
 if(Number.isInteger(pwdLength)){alert ("yes integer");check=true}
 else {alert("not integer")}
 if(pwdLength>=8 && pwdLength<=128){alert("length ok")}
-
 else {alert ("length wrong");check=false}
 }
 while(check==false)
@@ -35,6 +34,19 @@ else {alert ("password will not include numbers")}
 let pwdSpecial=prompt ("Would you like your password to include special characters yes/no")
 if (pwdSpecial=="yes"){alert("password will include special character")}
 else {alert ("password will not include special characters")}
+
+//we need to create an array of the characters that can be included in the password, incChars.
+let incChars=""
+let lowerAlphabet="abcdefghijklmnopqrstuvwxyz"
+let upperAlphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+let numbers="0123456789"
+//taken from https://owasp.org/www-community/password-special-characters but removed space from the list
+let specialCharacters="!\"\#$%&\'()*+,-./:;<=>?@[\]^_`{|}~"
+if(pwdLowercase=="yes"){incChars+=lowerAlphabet}
+if(pwdUppercase=="yes"){incChars+=upperAlphabet}
+if(pwdNumbers=="yes"){incChars+=numbers}
+if(pwdSpecial=="yes"){incChars+=specialCharacters}
+
 
 
 // Write password to the #password input
