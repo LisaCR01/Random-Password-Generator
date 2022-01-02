@@ -13,29 +13,43 @@ do{
   let pwdLength=prompt("How long would you like your password (8-128)?")
 pwdLength=Number(pwdLength)
 
-if(Number.isInteger(pwdLength)){alert ("yes integer");check=true}
-else {alert("not integer")}
-if(pwdLength>=8 && pwdLength<=128){alert("length ok");pwdL=pwdLength}
-else {alert ("length wrong");check=false}
-}
-while(check==false)
-console.log("pwd "+ pwdL)
-let pwdLowercase=prompt("Would you like your password to include lowercase yes/no","yes")
-if (pwdLowercase=="yes"){alert("password will include lowercase")}
-else {alert ("password will not include lowercase")}
+if(Number.isInteger(pwdLength)){check=true}
+if(pwdLength>=8 && pwdLength<=128){pwdL=pwdLength}
+else {check=false}
 
-let pwdUppercase=prompt ("Would you like your password to include uppercase yes/no","yes")
-if (pwdUppercase=="yes"){alert("password will include uppercase")}
-else {alert ("password will not include uppercase")}
+if (check==false){alert("Please try again, valid input is an integer 8-128")}}
+while(check==false) 
 
-let pwdNumbers=prompt ("Would you like your password to include numbers yes/no","yes")
-if (pwdNumbers=="yes"){alert("password will include numbers")}
-else {alert ("password will not include numbers")}
+var pwdLowercase=""
+var pwdUppercase=""
+var pwdNumbers=""
+var pwdSpecial=""
+var userChoice="You have selected "
+//resetting our check value to false.
+check=false
+//loop is to test we have one type of character at least
+do{
+pwdLowercase=prompt("Would you like your password to include lowercase yes/no","yes")
+if (pwdLowercase=="yes"){userChoice+="lowercase ";check=true}
 
-let pwdSpecial=prompt ("Would you like your password to include special characters yes/no","yes")
-if (pwdSpecial=="yes"){alert("password will include special character")}
-else {alert ("password will not include special characters")}
-//STILL need to put in a check that one of these is a yes. 
+
+ pwdUppercase=prompt ("Would you like your password to include uppercase yes/no","yes")
+if (pwdUppercase=="yes"){userChoice+=" uppercase"; check=true}
+
+
+pwdNumbers=prompt ("Would you like your password to include numbers yes/no","yes")
+if (pwdNumbers=="yes"){userChoice+=" numbers"; check=true}
+
+
+ pwdSpecial=prompt ("Would you like your password to include special characters yes/no","yes")
+if (pwdSpecial=="yes"){userChoice+=" special characters";check=true}
+
+if(check==false){alert("Please try again, you need at least one character type")}
+}while (check==false)
+
+alert(userChoice)
+
+
 
 //we need to create an array of the characters that can be included in the password, incChars.
 let incChars=""
@@ -49,22 +63,27 @@ if(pwdUppercase=="yes"){incChars+=upperAlphabet}
 if(pwdNumbers=="yes"){incChars+=numbers}
 if(pwdSpecial=="yes"){incChars+=specialCharacters}
 
-//generate random integers and use that to find an element of the array
-
-
-let pwdGen=""
-for (let i = 0; i < pwdL; i++){
-  pwdGen+=incChars[Math.floor(Math.random() * incChars.length)]
-  console.log("watch the password generate "+ pwdGen)
+function checkPassword(){
+  //test for each character type that was yes if it exists 
 }
 
-incChars[Math.floor(Math.random() * incChars.length)]
+//generate random integers and use that to find an element of the array
+function generatePassword() {
+  pwdGen=""
+  for (let i = 0; i < pwdL; i++){
+    pwdGen+=incChars[Math.floor(Math.random() * incChars.length)]
+  }
+ 
+  return pwdGen
+}
+
 
 // Write password to the #password input
 function writePassword() {
-  //var password = generatePassword();
+  let pwdGen=""
+  var password = generatePassword();
   //test what the basic code is doing - once we have a password it will pop up in the box. 
-  var password="abc"
+  //var password="abc"
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
