@@ -5,10 +5,11 @@ var pwdL=0
 // Alert message for the user welcoming to the  random password generator
 alert("Hello this is your friendly password generator")
 
-// Ask user for their choice of password length between 8-128 characters long
-// Computer checks whether it is an integer and in the range of characters stated
-// If chosen password length does not fit criteria ask user for a password length again
-
+/*
+Ask user for their choice of password length between 8-128 characters long
+Computer checks whether it is an integer and in the range of characters stated
+If chosen password length does not fit criteria ask user for a password length again
+*/
 do{
   let pwdLength=prompt("How long would you like your password (8-128)?")
 pwdLength=Number(pwdLength)
@@ -20,8 +21,10 @@ else {check=false}
 if (check==false){alert("Please try again, valid input is an integer 8-128")}}
 while(check==false) 
 
-// Option of different characters for the user to chose from: lowercase,uppercase,numeric and special
-// If user does not chose any characters stated above alert them that they must chose at least one category and ask questions again
+/*
+Option of different characters for the user to chose from: lowercase,uppercase,numeric and special
+If user does not chose any characters stated above alert them that they must chose at least one category and ask questions again
+*/
 var pwdLowercase=""
 var pwdUppercase=""
 var pwdNumbers=""
@@ -69,7 +72,7 @@ function checkPassword(){
   //test for each character type that was yes if it exists 
 }
 
-//generate random integers and use that to find an element of the array
+// Generate random integers and use that to find an element of the array
 function generatePassword() {
   pwdGen=""
   for (var i = 0; i < pwdL; i++){
