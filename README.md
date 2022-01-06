@@ -11,3 +11,7 @@ In this project I modified starter code to enable the user to generate random pa
 * When the user has answered the prompts then their input should be validated and at least one character type should be selected.
 * Once the user has answered all the prompts then a password is generated that matches their selected criteria.
 * When the password is generated it is displayed written on the page.
+
+![Deployed Application](./Deployed-Application-In-Use.jpg?raw=true)
+![Example of Prompt](./Prompt-Example.jpg?raw=true)
+[Link to Deployed Application](https://lisacr01.github.io/Random-Password-Generator/)
