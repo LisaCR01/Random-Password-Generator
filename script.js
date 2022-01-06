@@ -2,7 +2,7 @@
 var generateBtn = document.querySelector("#generate");
 var check=false
 var pwdL=0
-// Alert message for the user welcoming to the  random password generator
+// Alert message for the user welcoming to the random password generator
 alert("Hello this is your friendly password generator")
 
 /*
@@ -68,11 +68,10 @@ if(pwdUppercase=="yes"){incChars+=upperAlphabet}
 if(pwdNumbers=="yes"){incChars+=numbers}
 if(pwdSpecial=="yes"){incChars+=specialCharacters}
 
-function checkPassword(){
-  //test for each character type that was yes if it exists 
-}
-
-// Generate random integers and use that to find an element of the array
+/* 
+The computer generates a random integer and uses that to find an element of the array
+It does this for each element of the password
+*/
 function generatePassword() {
   pwdGen=""
   for (var i = 0; i < pwdL; i++){
@@ -86,8 +85,6 @@ function generatePassword() {
 function writePassword() {
   let pwdGen=""
   var password = generatePassword();
-  //test what the basic code is doing - once we have a password it will pop up in the box. 
-  //var password="abc"
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
